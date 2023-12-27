@@ -1,32 +1,31 @@
-# OpenMAP-T1
-![Representative](https://github.com/OishiLab/OpenMAP-T1-V2.0.0/assets/64403395/a7417f3a-0a80-4199-9cb6-ddfe50c3c731)
-**OpenMAP-T1: A Rapid Deep-Learning Approach to Parcellate 280 Anatomical Regions to Cover the Whole Brain**<br>
-Kei Nishimaki, Kengo Onda, Kumpei Ikuta, Jill Chotiyanonta, Yuto Uchida, Susumu Mori, Hitoshi Iyatomi, Kenichi Oishi<br>
+# OpenMAP-T1-V1
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1fmfkxxZjChExnl5cHITYkNYgTu3MZ7Ql#scrollTo=xwZxyL5ewVNF)
 
-The Russell H. Morgan Department of Radiology and Radiological Science, The Johns Hopkins University School of Medicine, Baltimore, MD, USA <br>
-Department of Applied Informatics, Graduate School of Science and Engineering, Hosei University, Tokyo, Japan <br>
-The Richman Family Precision Medicine Center of Excellence in Alzheimer’s Disease, Johns Hopkins University School of Medicine, Baltimore, MD, USA<br>
+**OpenMAP-T1-V1 parcellates the whole brain into 280 anatomical regions based on JHU-atlas in 90 (sec/case).**
 
-Paper: Not yet<br>
-Submitted for publication in the **2024 ISMRM Annual Meeting**<br>
-
-Abstract: *Whole-brain MRI parcellation serves as a feature extraction method, allowing for the condensation of information over a million pixels into a hundred neuroanatomically dfined elements. The multi-atlas label-fusion (MALF) method reknowned for its accuracy in whole-brain parcellation. However, the subbstantial compputational demand tipically necessitates several hours to process a single image, thereby impeding its adoption in clinical settings and large-scale data analysis. To adress this challenge, we introduce OpenMAP-T1, a deep learning based parcellation approach with the acccuracy comparable to MALF and operates 40 times faster, demonstrating its potential clinical application.*
-
-## Contribution
-Compared to other commonly used whole brain parcellation tools, OpenMAP-T1 has some significant advantages:
-* OpenMAP-T1 parcellates the whole brain into 280 anatomical regions based on JHU-atlas in 40 (sec/case).
+We are publishing demonstration.
 
 ## Installation Instructions
+0. install python and make virtual environment<br>
+python3.8 or later is recommended.
+
 1. Clone this repository:
 ```
-git clone https://github.com/OishiLab/OpenMAP-T1-V2.0.0.git
+git clone https://github.com/OishiLab/OpenMAP-T1-V1.git
 ```
 2. Please install PyTorch compatible with your environment.<br>
 https://pytorch.org/
 
-3. Go into the repository (the folder with the setup.py file) and install:
+Once you select your environment, the required commands will be displayed.
+
+<img width="485" alt="image" src="https://github.com/OishiLab/OpenMAP-T1-V1/assets/64403395/eb092ff6-6597-4237-ac3a-aa0695bff631">
+
+If you want to install an older Pytorch environment, you can download it from the link below.<br>
+https://pytorch.org/get-started/previous-versions/
+
+4. Go into the repository and install:
 ```
-cd OpenMAP-T1-V2.0.0
+cd OpenMAP-T1-V1
 pip install -r requirements.txt
 ```
 
