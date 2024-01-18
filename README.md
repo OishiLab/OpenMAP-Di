@@ -9,7 +9,7 @@ python3.8 or later is recommended.
 
 1. Clone this repository:
 ```
-git clone https://github.com/OishiLab/OpenMAP-T1-V1.git
+git clone https://github.com/OishiLab/OpenMAP-T1-V2.git
 ```
 2. Please install PyTorch compatible with your environment.<br>
 https://pytorch.org/
