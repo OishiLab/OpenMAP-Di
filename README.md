@@ -1,9 +1,7 @@
-# OpenMAP-T1-V1
+# OpenMAP-T1-V2
+**OpenMAP-T1-V2 parcellates the whole brain into 280 anatomical regions based on JHU-atlas in 50 (sec/case).**
+
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1fmfkxxZjChExnl5cHITYkNYgTu3MZ7Ql#scrollTo=xwZxyL5ewVNF)
-
-**OpenMAP-T1-V1 parcellates the whole brain into 280 anatomical regions based on JHU-atlas in 90 (sec/case).**
-
-We are publishing demonstration.
 
 ## Installation Instructions
 0. install python and make virtual environment<br>
@@ -18,7 +16,7 @@ https://pytorch.org/
 
 Once you select your environment, the required commands will be displayed.
 
-<img width="485" alt="image" src="https://github.com/OishiLab/OpenMAP-T1-V1/assets/64403395/eb092ff6-6597-4237-ac3a-aa0695bff631">
+![image](https://github.com/OishiLab/OpenMAP-T1-V1/assets/64403395/bd9641e3-5933-48c4-9454-1e0b9fc18e96)
 
 If you want to install an older Pytorch environment, you can download it from the link below.<br>
 https://pytorch.org/get-started/previous-versions/
@@ -34,12 +32,19 @@ Using OpenMAP-T1 is straightforward. You can use it in any terminal on your linu
 ```
 python3 parcellation.py -i INPUR_DIRNAME -o OUTPUT_DIRNAME -m MODEL_DIRNAME
 ```
-If you want to specify the GPU, please add ```--gpu```.
+If you want to specify the GPU, please add ```CUDA_VISIBLE_DEVICES=N```.
 ```
-python3 parcellation.py -i INPUR_DIRNAME -o OUTPUT_DIRNAME -m MODEL_DIRNAME --gpu 1
+CUDA_VISIBLE_DEVICES=1 python3 parcellation.py -i INPUR_DIRNAME -o OUTPUT_DIRNAME -m MODEL_DIRNAME
 ```
 
-### Folder
+## How to download the pretrained model.
+You can get the pretrained model from the this link.
+[Link of pretrained model](https://forms.office.com/Pages/ResponsePage.aspx?id=OPSkn-axO0eAP4b4rt8N7Iz6VabmlEBIhG4j3FiMk75UQUxBMkVPTzlIQTQ1UEZJSFY1NURDNzRERC4u)
+
+![image](https://github.com/OishiLab/OpenMAP-T1-V1/assets/64403395/f50f89a3-f244-45c4-a378-e52dd2a2e9de)
+
+## Folder
+All images you input must be in NifTi format and have a .nii extension.
 ```
 INPUR_DIRNAME/
   ├ A.nii
@@ -47,14 +52,14 @@ INPUR_DIRNAME/
   ├ *.nii
 
 OUTPUT_DIRNAME/
-  ├ input/
-  |   ├ A.nii
-  |   ├ B.nii
-  |   ├ *.nii
-  └ output/
-      ├ A.nii
+  ├ A/
+  |   ├ A.nii # input image
+  |   ├ A_volume.csv # volume information (mm^3)
+  |   └ A_280.nii # parcellation map
+  └ B/
       ├ B.nii
-      ├ *.nii
+      ├ B_volume.csv
+      └ B_280.nii
 
 MODEL_DIRNAME/
   ├ CNet/CNet.pth
@@ -68,24 +73,9 @@ MODEL_DIRNAME/
       └ axial.pth
 ```
 
-## How to download the pretrained model.
-You can get the pretrained model from the this link.
-[Link of pretrained model](https://livejohnshopkins-my.sharepoint.com/:f:/g/personal/knishim4_jh_edu/EnMzAgDEcHpMqzmHw_vWOskBr6Ax2KQEMZFq8yG7KitkBQ?email=yuchida2%40jhmi.edu&e=bXE4pW)
-
 ## FAQ
-* **How much GPU memory do I need to run HD-BET?** <br>
+* **How much GPU memory do I need to run OpenMAP-T1?** <br>
 We ran all our experiments on NVIDIA RTX3090 GPUs with 24 GB memory. For inference you will need less, but since inference in implemented by exploiting the fully convolutional nature of CNNs the amount of memory required depends on your image. Typical image should run with less than 4 GB of GPU memory consumption. If you run into out of memory problems please check the following: 1) Make sure the voxel spacing of your data is correct and 2) Ensure your MRI image only contains the head region.
 
 * **Will you provide the training code as well?** <br>
 No. The training code is tightly wound around the data which we cannot make public.
-
-## Citation
-```
-@article{nishimaki2024openmap-t1,
-  title={OpenMAP-T1: A Rapid Deep-Learning Approach to Parcellate 280 Anatomical Regions to Cover the Whole Brain},
-  author={Kei Nishimaki, Kengo Onda, Kumpei Ikuta, Jill Chotiyanonta, Yuto Uchida, Susumu Mori, Hitoshi Iyatomi, Kenichi Oishi},
-  journal={~~~~},
-  year={2024},
-  publisher={~~~~}
-}
-```
