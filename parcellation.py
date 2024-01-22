@@ -36,7 +36,7 @@ def main():
         "when using OpenMAP-T1:\n"
         "Kei Nishimaki, Kengo Onda, Kumpei Ikuta, Yuto Uchida, Hitoshi Iyatomi, Kenichi Oishi (2024).\n"
         "OpenMAP-T1: A Rapid Deep Learning Approach to Parcellate 280 Anatomical Regions to Cover the Whole Brain.\n"
-        "paper: Not yet.\n#######################################################################\n"
+        "paper: https://www.medrxiv.org/content/10.1101/2024.01.18.24301494v1.\n#######################################################################\n"
         )
     opt = create_parser()
     device = torch.device("cuda", 0) if torch.cuda.is_available() else "cpu"
