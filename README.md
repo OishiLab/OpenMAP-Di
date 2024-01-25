@@ -28,7 +28,7 @@ pip install -r requirements.txt
 ```
 
 ## How to use it
-Using OpenMAP-T1 is straightforward. You can use it in any terminal on your linux system. The OpenMAP-T1 command was installed automatically. We provide CPU as well as GPU support. Running on GPU is a lot faster though and should always be preferred. Here is a minimalistic example of how you can use OpenMAP-T1.
+Using OpenMAP-T1 is straightforward. You can use it in any terminal on your linux system. We provide CPU as well as GPU support. Running on GPU is a lot faster though and should always be preferred. Here is a minimalistic example of how you can use OpenMAP-T1.
 ```
 python3 parcellation.py -i INPUR_DIRNAME -o OUTPUT_DIRNAME -m MODEL_DIRNAME
 ```
