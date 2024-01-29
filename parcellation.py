@@ -40,7 +40,7 @@ def main():
         "#######################################################################\n"
         )
     opt = create_parser()
-    device = torch.device("cuda", 0) if torch.cuda.is_available() else "cpu"
+    device = torch.device("cuda") if torch.cuda.is_available() else "cpu"
     cnet, ssnet, pnet_c, pnet_s, pnet_a, hnet_c, hnet_a = load_model(opt, device)
 
     print("load complete !!")
