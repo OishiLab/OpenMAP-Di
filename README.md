@@ -23,7 +23,7 @@ https://pytorch.org/get-started/previous-versions/
 
 4. Go into the repository and install:
 ```
-cd OpenMAP-T1-V1
+cd OpenMAP-T1-V2
 pip install -r requirements.txt
 ```
 
