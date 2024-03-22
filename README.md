@@ -3,6 +3,12 @@
 # OpenMAP-Di
 **OpenMAP-Di parcellates an infant's DTI brain scan into 169 anatomical regions.**
 
+## System Requirements
+### Operating System
+OpenMAP-Di has been tested on Linux (Ubuntu 22.04) and MacOS. Although untested, it should theoretically work on Windows as well.
+### Hardware Requirements
+Like the [nnU-Net hardware requirements for inference](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/installation_instructions.md#hardware-requirements-for-inference), a GPU of at least 4 GB of available VRAM is recommended for faster predictions; however, inference times are typically still manageable on CPU and MPS (Apple M1/M2).
+
 ## Installation Instructions
 0. Create a Python 3 virtual environment. Activate the environment.
 ```
@@ -23,11 +29,26 @@ pip install -r requirements.txt
 
 3. Download the pre-trained model using this link (TBD).
 
-4. Convert the data you would like to parcellate into the [nnU-Net dataset format](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/dataset_format.md). Channel numbers are defined in the `dataset.json` file within the pre-trained model folder.
-
-6. Run `parcellate_neonatal_brain.py` to parcellate your dataset! See help (`-h`) for more details. Inferred parcellations will be outputted to the `OUTPUT_FOLDER`, while postprocessed parcellations will be outputted to a `postprocessing` subfolder of the `OUTPUT_FOLDER`.
+4. Convert the data you would like to parcellate into the [nnU-Net data format for inference](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/dataset_format_inference.md). Specifically, the `INPUT_FOLDER` should look similar to below. Channel numbers are defined in the `dataset.json` file within the pre-trained `MODEL_FOLDER`; for the provided model, channels `0000`, `0001`, `0002`, `0003`, `0004` correspond to `dwi`, `b0`, `color_r`, `color_g`, `color_b`. `convert_to_nnunet_format.py` has also been provided to assist in the conversion; see help (`-h`) for more details.
 ```
-python parcellate_neonatal_brain.py -i INPUT_FOLDER -o OUTPUT_FOLDER -m MODEL_FOLDER
+python convert_to_nnunet_format.py -i INPUT_FOLDER -d DWI_FILE -b B0_FILE -c COLOR_FILE -s SUBJECT_IDENTIFIER
+```
+        INPUT_FOLDER
+        ├── brain_00_0000.nii.gz
+        ├── brain_00_0001.nii.gz
+        ├── brain_00_0002.nii.gz
+        ├── brain_00_0003.nii.gz
+        ├── brain_00_0004.nii.gz
+        ├── brain_01_0000.nii.gz
+        ├── brain_01_0001.nii.gz
+        ├── brain_01_0002.nii.gz
+        ├── brain_01_0003.nii.gz
+        ├── brain_01_0004.nii.gz
+        ├── ...
+
+5. Run `parcellate_neonatal_brain.py` to parcellate your dataset! See help (`-h`) for more details. Inferred parcellations will be outputted to the `OUTPUT_FOLDER`, while postprocessed parcellations will be outputted to a `postprocessing` subfolder of the `OUTPUT_FOLDER`.
+```
+python parcellate_neonatal_brain.py -i INPUT_FOLDER -o OUTPUT_FOLDER -m MODEL_FOLDER -device DEVICE
 ```
 
 ## Citation

@@ -1,4 +1,3 @@
-from torch.cuda import is_available
 import sys
 from nnunetv2.inference.predict_from_raw_data import predict_entry_point_modelfolder
 from nnunetv2.postprocessing.remove_connected_components import entry_point_apply_postprocessing
