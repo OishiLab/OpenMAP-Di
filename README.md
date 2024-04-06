@@ -27,7 +27,7 @@ cd OpenMAP-Di
 pip install -r requirements.txt
 ```
 
-3. Download the pre-trained model using this link [Link of pretraind model](https://forms.office.com/Pages/ResponsePage.aspx?id=OPSkn-axO0eAP4b4rt8N7Iz6VabmlEBIhG4j3FiMk75UNkxFRk5IRkY3MjJaNU9POUZBNlNQRzUxVy4u).
+3. Download the pre-trained model using this link. [Link of pretraind model!](https://forms.office.com/Pages/ResponsePage.aspx?id=OPSkn-axO0eAP4b4rt8N7Iz6VabmlEBIhG4j3FiMk75UNkxFRk5IRkY3MjJaNU9POUZBNlNQRzUxVy4u)
 
 4. Convert the data you would like to parcellate into the [nnU-Net data format for inference](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/dataset_format_inference.md). Specifically, the `INPUT_FOLDER` should look similar to below. Channel numbers are defined in the `dataset.json` file within the pre-trained `MODEL_FOLDER`; for the provided model, channels `0000`, `0001`, `0002`, `0003`, `0004` correspond to `dwi`, `b0`, `color_r`, `color_g`, `color_b`. `convert_to_nnunet_format.py` has also been provided to assist in the conversion; see help (`-h`) for more details.
 ```
