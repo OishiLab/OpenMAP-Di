@@ -9,7 +9,7 @@ python3.8 or later is recommended.
 
 1. Clone this repository:
 ```
-git clone -b v2.0.0 https://github.com/OishiLab/OpenMAP-Di-V2.git
+git clone -b v2.0.0 https://github.com/OishiLab/OpenMAP-Di.git
 ```
 2. Please install PyTorch compatible with your environment.<br>
 https://pytorch.org/
