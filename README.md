@@ -16,7 +16,7 @@ https://pytorch.org/
 
 Once you select your environment, the required commands will be displayed.
 
-![image](https://github.com/OishiLab/OpenMAP-T1-V1/assets/64403395/bd9641e3-5933-48c4-9454-1e0b9fc18e96)
+![image](https://github.com/OishiLab/OpenMAP-T1-V1/v2.0.0/media/PyTorch.png)
 
 If you want to install an older Pytorch environment, you can download it from the link below.<br>
 https://pytorch.org/get-started/previous-versions/
