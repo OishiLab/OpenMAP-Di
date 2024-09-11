@@ -6,7 +6,7 @@ def make_csv(parcellation, save):
     df = pd.read_table(csv_path, names=["number","region"]).astype("str").set_index("number")
     for i in range(168):
         i += 1
-        volume = np.count_nonzero(parcellation==i)
-        df.loc[str(i), save] = volume * resolution
+        volume = np.count_nonzero(parcellation==i) * resolution
+        df.loc[str(i), save] = volume 
     df = df.set_index("region").T.reset_index().rename(columns={"index":"uid"})
     return df
