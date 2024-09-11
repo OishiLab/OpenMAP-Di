@@ -1,3 +1,4 @@
+import numpy as np
 import torch
 from scipy.ndimage import binary_dilation
 from utils.functions import normalize_dwib0
