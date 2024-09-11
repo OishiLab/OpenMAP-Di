@@ -21,7 +21,7 @@ def N4_Bias_Field_Correction(input_path, output_path):
     return
 
 def preprocessing(ipath, save):
-    opath = f"N4/{save}.nii"
+    opath = f"N4/{save}"
     os.makedirs("N4", exist_ok=True)
     N4_Bias_Field_Correction(ipath, opath)
     odata = nib.squeeze_image(nib.as_closest_canonical(nib.load(opath)))
