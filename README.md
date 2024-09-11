@@ -36,6 +36,7 @@ If you want to specify the GPU, please add ```CUDA_VISIBLE_DEVICES=N```.
 ```
 CUDA_VISIBLE_DEVICES=1 python3 parcellation.py -i INPUT_DIRNAME -o OUTPUT_DIRNAME -m MODEL_DIRNAME
 ```
+If the error occurs for Windows users, please change ```Python3``` to ```Python```.
 
 ## How to download the pretrained model.
 You can get the pretrained model from the this link.
