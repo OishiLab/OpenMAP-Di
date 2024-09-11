@@ -34,4 +34,4 @@ def stripping(data0, data1, ssnet, device):
     out_a = strip(axial, ssnet, device).permute(2,1,0)
     out_e = ((out_c + out_s + out_a * 2) / 4) > 0.5
     out_e = out_e.cpu().numpy()
-    return stripped
+    return out_e
