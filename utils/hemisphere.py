@@ -25,8 +25,8 @@ def hemisphere(out_e, data0, data1, hnet_c, hnet_a, device):
     
     voxel = np.concatenate([voxel0, voxel1], axis=0)
     
-    coronal = voxel.transpose(1, 2, 0)
-    axial = voxel.transpose(2, 1, 0)
+    coronal = voxel.transpose(0, 2 ,3, 1)
+    axial = voxel.transpose(0, 3, 2, 1)
     out_c = separate(coronal, hnet_c, device).permute(1, 3, 0, 2)
     out_a = separate(axial, hnet_a, device).permute(1, 3, 2, 0)
     out_e = out_c + out_a * 2
