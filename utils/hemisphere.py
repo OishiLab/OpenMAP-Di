@@ -16,7 +16,7 @@ def separate(voxel, model, device):
             box[i - 1] = torch.softmax(model(image),1)
         return box
     
-def hemisphere(data0, data1, hnet_c, hnet_a, device):
+def hemisphere(out_e, data0, data1, hnet_c, hnet_a, device):
     voxel0 = (data0.get_fdata() * out_e).astype(np.float32)
     voxel0 = normalize_dwib0(voxel0)[np.newaxis]
     voxel1 = (data1.get_fdata() * out_e).astype(np.float32)
