@@ -23,7 +23,7 @@ https://pytorch.org/get-started/previous-versions/
 
 4. Go into the repository and install:
 ```
-cd OpenMAP-Di-V2
+cd OpenMAP-Di
 pip install -r requirements.txt
 ```
 
