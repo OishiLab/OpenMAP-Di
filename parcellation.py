@@ -10,7 +10,6 @@ import torch
 from nibabel import processing
 from tqdm import tqdm as std_tqdm
 
-from utils.cropping import cropping
 from utils.hemisphere import hemisphere
 from utils.parcellation import parcellation
 from utils.postprocessing import postprocessing
