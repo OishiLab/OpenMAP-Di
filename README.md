@@ -9,21 +9,21 @@ python3.8 or later is recommended.
 
 1. Clone this repository:
 ```
-git clone -b v2.0.0 https://github.com/OishiLab/OpenMAP-Di-V2.git
+git clone -b v2.0.0 https://github.com/OishiLab/OpenMAP-Di.git
 ```
 2. Please install PyTorch compatible with your environment.<br>
 https://pytorch.org/
 
 Once you select your environment, the required commands will be displayed.
 
-![image](https://github.com/OishiLab/OpenMAP-T1-V1/assets/64403395/bd9641e3-5933-48c4-9454-1e0b9fc18e96)
+![image](media/PyTorch.png)
 
 If you want to install an older Pytorch environment, you can download it from the link below.<br>
 https://pytorch.org/get-started/previous-versions/
 
 4. Go into the repository and install:
 ```
-cd OpenMAP-Di-V2
+cd OpenMAP-Di
 pip install -r requirements.txt
 ```
 
@@ -36,6 +36,7 @@ If you want to specify the GPU, please add ```CUDA_VISIBLE_DEVICES=N```.
 ```
 CUDA_VISIBLE_DEVICES=1 python3 parcellation.py -i INPUT_DIRNAME -o OUTPUT_DIRNAME -m MODEL_DIRNAME
 ```
+If the error occurs for Windows users, please change ```Python3``` to ```Python```.
 
 ## How to download the pretrained model.
 You can get the pretrained model from the this link.
