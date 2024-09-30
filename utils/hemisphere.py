@@ -1,6 +1,6 @@
 import numpy as np
 import torch
-from scipy.ndimage import binary_dilation
+from scipy.ndimage import binary_dilation, label, find_objects
 from utils.functions import normalize_dwib0
 
 
@@ -16,6 +16,29 @@ def separate(voxel, model, device):
             image = image.to(device)
             box[i - 1] = torch.softmax(model(image),1)
         return box
+
+def remove_small_areas(brain_map, target_label):
+    mask = brain_map == target_label
+    labeled_array, num_features = label(mask)
+    sizes = np.bincount(labeled_array.ravel())
+    sizes[0] = 0
+    largest_region = sizes.argmax()
+
+    for i in range(1, num_features + 1):
+        if i != largest_region:
+            region_mask = labeled_array == i
+            brain_map[region_mask] = get_surrounding_label(brain_map, region_mask)
+    return brain_map
+
+def get_surrounding_label(brain_map, region_mask):
+    expanded_mask = np.pad(region_mask, 1, mode='constant', constant_values=0)
+    surrounding_labels = brain_map[expanded_mask[1:-1, 1:-1, 1:-1] == 0]
+    surrounding_labels = surrounding_labels[surrounding_labels > 0]
+
+    if len(surrounding_labels) == 0:
+        return 0 
+
+    return np.bincount(surrounding_labels).argmax()
     
 def hemisphere(out_e, data0, data1, hnet_c, hnet_a, device):
     voxel0 = (data0.get_fdata() * out_e).astype(np.float32)
@@ -32,7 +55,8 @@ def hemisphere(out_e, data0, data1, hnet_c, hnet_a, device):
     out_e = out_c + out_a * 2
     del out_c, out_a
     out_e = torch.argmax(out_e, 0).cpu().numpy()
-    torch.cuda.empty_cache()
+    out_e = remove_small_areas(out_e, target_label=1)
+    out_e = remove_small_areas(out_e, target_label=2)
     
     dilated_mask_1 = binary_dilation(out_e == 1, iterations=10).astype("int16")
     dilated_mask_1[out_e == 2] = 2
@@ -42,4 +66,5 @@ def hemisphere(out_e, data0, data1, hnet_c, hnet_a, device):
     dilated_mask_2[dilated_mask_1 == 1] = 1
     dilated_mask_2[dilated_mask_1 == 3] = 3
     dilated_mask_2[dilated_mask_1 == 4] = 4
+    torch.cuda.empty_cache()
     return dilated_mask_2
