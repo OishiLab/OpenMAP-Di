@@ -38,7 +38,7 @@ def main():
     #     )
     opt = create_parser()
     device = torch.device("cuda") if torch.cuda.is_available() else "cpu"
-    cnet, ssnet, pnet_c, pnet_s, pnet_a, hnet_c, hnet_a = load_model(opt, device)
+    ssnet, pnet_c, pnet_s, pnet_a, hnet_c, hnet_a = load_model(opt, device)
 
     print("load complete !!")
     pathes = sorted(glob.glob(os.path.join(opt.i, "**/*.nii"), recursive=True))
@@ -76,8 +76,8 @@ def main():
             nib.save(nii, os.path.join(output_dir, f"{save}"))
             data4 = processing.conform(odata, out_shape=(256, 256, 256), voxel_size=(0.6, 0.6, 0.6), order=1)    
             
-            parcellated = parcellation(data0, data1, data2, data3, data4, pnet_c, pnet_s, pnet_a, device)
-            separated = hemisphere(data0, data1, hnet_c, hnet_a, device)
+            parcellated = parcellation(out_e, data0, data1, data2, data3, data4, pnet_c, pnet_s, pnet_a, device)
+            separated = hemisphere(out_e, data0, data1, hnet_c, hnet_a, device)
             output = postprocessing(parcellated, separated)
 
             df = make_csv(output, dirname)

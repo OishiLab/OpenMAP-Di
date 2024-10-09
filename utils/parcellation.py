@@ -17,7 +17,7 @@ def parcellate(voxel, model, device):
             box[i - 1] = torch.softmax(model(image),1).detach().cpu()
         return box
     
-def parcellation(data0, data1, data2, data3, data4, pnet_c, pnet_s, pnet_a, device):
+def parcellation(out_e, data0, data1, data2, data3, data4, pnet_c, pnet_s, pnet_a, device):
     voxel0 = (data0.get_fdata() * out_e).astype(np.float32)
     voxel0 = normalize_dwib0(voxel0)[np.newaxis]
     voxel1 = (data1.get_fdata() * out_e).astype(np.float32)
@@ -33,7 +33,7 @@ def parcellation(data0, data1, data2, data3, data4, pnet_c, pnet_s, pnet_a, devi
     
     coronal = voxel.transpose(0, 2, 3, 1)
     axial = voxel.transpose(0, 3, 2, 1)
-    sagital = voxel
+    sagittal = voxel
     
     out_c = parcellate(coronal, pnet_c, device).permute(1, 3, 0, 2)
     torch.cuda.empty_cache()

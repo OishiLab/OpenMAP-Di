@@ -19,7 +19,7 @@ def combine_maps(map_86, map_5,  index_dict, lr_dict, continuous_value_dict):
     
     combined_map = map_86 * (map_5 > 2)
     sepa_map = map_left + map_right
-    combined_map = combined_map + lr_map
+    combined_map = combined_map + sepa_map
     combined_map[map_86 * map_5 == 0] = 0
     combined_map[map_5 == 3] = 159
     combined_map[map_5 == 4] = 168
