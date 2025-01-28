@@ -36,11 +36,26 @@ If you want to specify the GPU, please add ```CUDA_VISIBLE_DEVICES=N```.
 ```
 CUDA_VISIBLE_DEVICES=1 python3 parcellation.py -i INPUT_DIRNAME -o OUTPUT_DIRNAME -m MODEL_DIRNAME
 ```
-If the error occurs for Windows users, please change ```Python3``` to ```Python```.
+If the error occurs for Windows users, please change ```python3``` to ```python```.
 
 ## How to download the pretrained model.
 You can get the pretrained model from the this link.
 [Link of pretrained model](https://forms.office.com/Pages/ResponsePage.aspx?id=OPSkn-axO0eAP4b4rt8N7Iz6VabmlEBIhG4j3FiMk75UNkxFRk5IRkY3MjJaNU9POUZBNlNQRzUxVy4u)
+
+## Creating the Input Directory for the Model
+To create the input directory structure as referenced below, it is necessary to separate the color image into its RGB components.
+You can use the ```convert_to_openmap_format.py``` script to generate the required input directory.
+**Note**
+- Ensure that the following file naming conventions are used:
+  - **DWI** images should be named as A_dwi.nii(A is sublect identifire)
+  - **b0** images should be named as A_b0.nii
+  - **color** images should be named as A_color.nii
+- If the subject names are different, you can place all the images into the same directory. The script can then process them in a single run to generate the Input directory.
+```
+python3 convert_to_openmap_format.py -i INPUT_DIRNAME -f CONVERT_DIRNAME
+```
+- ```INPUT_DIRNAME ```: The directory that will be prepared as an input folder for OpenMAP using ```convert_to_openmap_format.py``` .
+- ```CONVERT_DIRNAME ```: The directory containing the files you want to convert.
 
 ## Folder
 All images you input must be in NifTi format and have a .nii extension.
