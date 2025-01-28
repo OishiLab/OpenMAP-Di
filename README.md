@@ -54,8 +54,8 @@ You can use the ```convert_to_openmap_format.py``` script to generate the requir
 ```
 python3 convert_to_openmap_format.py -i INPUT_DIRNAME -f CONVERT_DIRNAME
 ```
-- ```INPUT_DIRNAME ```: The directory that will be prepared as an input folder for OpenMAP using ```convert_to_openmap_format.py``` .
-- ```CONVERT_DIRNAME ```: The directory containing the files you want to convert.
+- ```INPUT_DIRNAME: ``` The directory that will be prepared as an input folder for OpenMAP using ```convert_to_openmap_format.py``` .
+- ```CONVERT_DIRNAME: ``` The directory containing the files you want to convert.
 
 ## Folder
 All images you input must be in NifTi format and have a .nii extension.
