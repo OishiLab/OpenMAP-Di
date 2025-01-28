@@ -47,7 +47,7 @@ To create the input directory structure as referenced below, it is necessary to 
 You can use the ```convert_to_openmap_format.py``` script to generate the required input directory.
 **Note**
 - Ensure that the following file naming conventions are used:
-  - **DWI** images should be named as A_dwi.nii(A is sublect identifire)
+  - **DWI** images should be named as A_dwi.nii(A is subject identifier)
   - **b0** images should be named as A_b0.nii
   - **color** images should be named as A_color.nii
 - If the subject names are different, you can place all the images into the same directory. The script can then process them in a single run to generate the Input directory.
