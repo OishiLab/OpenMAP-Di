@@ -42,7 +42,7 @@ If the error occurs for Windows users, please change ```python3``` to ```python`
 You can get the pretrained model from the this link.
 [Link of pretrained model](https://forms.office.com/Pages/ResponsePage.aspx?id=OPSkn-axO0eAP4b4rt8N7Iz6VabmlEBIhG4j3FiMk75UNkxFRk5IRkY3MjJaNU9POUZBNlNQRzUxVy4u)
 
-## Creating the Input Directory for the Model
+## Creating the Input Directory for the OpenMAP-Di
 To create the input directory structure as referenced below, it is necessary to separate the color image into its RGB components.
 You can use the ```convert_to_openmap_format.py``` script to generate the required input directory.
 **Note**
