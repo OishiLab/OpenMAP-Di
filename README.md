@@ -2,7 +2,7 @@
 
 # OpenMAP-Di
 **OpenMAP-Di parcellates an infant's DTI brain scan into 169 anatomical regions.**
-![OpenMAP-Di_figure](https://github.com/OishiLab/OpenMAP-Di/blob/main/OpenMAP-Di%20figure.png)
+![OpenMAP-Di_figure](https://github.com/OishiLab/OpenMAP-Di/blob/main/OpenMAP-Di%20figure_v1.png)
 ## System Requirements
 ### Operating System
 OpenMAP-Di has been tested on Linux (Ubuntu 22.04) and MacOS. Although untested, it should theoretically work on Windows as well.
