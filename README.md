@@ -1,7 +1,7 @@
 ![OpenMAP_Logo_with_name](https://github.com/OishiLab/OpenMAP-T1/assets/64403395/9ce68146-eeb7-4ce0-bd49-73f1c7ded4d8)
 
 # OpenMAP-Di-V2
-**OpenMAP-Di parcellates the whole brain into 168 anatomical regions based on JHU-atlas in 60 (sec/case).**
+**OpenMAP-Di parcellates infant's DTI into 168 anatomical regions based on JHU-atlas in 60 (sec/case).**
 
 ## Installation Instructions
 0. install python and make virtual environment<br>
@@ -75,11 +75,11 @@ INPUT_DIRNAME/
 
 OUTPUT_DIRNAME/
   ├ A/
-  |   ├ A.nii # input image
+  |   ├ A_0*.nii # input image
   |   ├ A_volume.csv # volume information (mm^3)
   |   └ A_168.nii # parcellation map
   └ B/
-      ├ B.nii
+      ├ B_0*.nii
       ├ B_volume.csv
       └ B_168.nii
   |
